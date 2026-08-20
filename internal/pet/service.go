@@ -213,8 +213,6 @@ func (s *Service) ListUsers(ctx context.Context, principal Principal, pageNum, p
 		return Page[User]{}, ErrForbidden
 	}
 	pageNum, pageSize = normalizePage(pageNum, pageSize)
-	filter := (UserFilter{Username: username, Phone: phone, Role: role}).Normalized()
-	username, phone, role = filter.Username, filter.Phone, filter.Role
 	where := []string{"1=1"}
 	args := []any{}
 	if strings.TrimSpace(username) != "" {

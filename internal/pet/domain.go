@@ -3,7 +3,6 @@ package pet
 import (
 	"encoding/json"
 	"fmt"
-	"strings"
 	"time"
 )
 
@@ -24,16 +23,6 @@ type User struct {
 	Status    int       `json:"status"`
 	CreatedAt time.Time `json:"createTime"`
 	UpdatedAt time.Time `json:"updateTime"`
-}
-
-type UserFilter struct {
-	Username string
-	Phone    string
-	Role     string
-}
-
-func (f UserFilter) Normalized() UserFilter {
-	return UserFilter{Username: strings.TrimSpace(f.Username), Role: strings.TrimSpace(f.Role)}
 }
 
 type Pet struct {
